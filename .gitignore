@@ -1,0 +1,63 @@
+# Unity 관련 임시 파일 및 폴더 무시
+
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Mm]emoryCaptures/
+
+# Auto-generated VS/MD/IDE 파일들 무시
+
+.vscode/
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+
+# OS 관련 파일 무시
+
+.DS_Store
+Thumbs.db
+
+# Unity 캐시 파일 무시
+
+*.pidb.meta
+*.pdb.meta
+
+# Unity Asset Store 폴더 무시 (다운로드 캐시)
+
+AssetStoreTools*
+
+# Crash Reports
+
+sysinfo.txt
+
+# User-specific files
+
+*.user
+*.userprefs
+
+# 기타 불필요한 파일
+
+*.apk
+*.aab
+*.exe
+*.dll
+*.cache
+
+# 빌드 결과물
+
+Build/
+Builds/
+
+# Git LFS 사용할 때 참고용
+
+# *.psd filter=lfs diff=lfs merge=lfs -text
