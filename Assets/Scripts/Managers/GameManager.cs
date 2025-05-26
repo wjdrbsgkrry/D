@@ -3,21 +3,24 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    static GameManager instance;
-    public static GameManager gameManager { get { return instance; } }
-
+    static GameManager _gameManager;
+    static GameManager gameManager { get { return _gameManager; } }
+    ResourceManager _resource = new ResourceManager();
+    UIManager _ui = new UIManager();
+    public static ResourceManager ResourceManager { get { return gameManager._resource; } }
+    public static UIManager UI { get { return gameManager._ui; } }
+   
     static void Init()
     {
-        int test = 32;
         GameObject go = GameObject.Find("GameManager");
         if (go == null)
         {
             go = new GameObject("GameManager");
             DontDestroyOnLoad(go);
         }
-        if (instance == null)
+        if (_gameManager == null)
         {
-            instance = new GameManager();
+            _gameManager = new GameManager();
         }
     }
 
@@ -26,6 +29,9 @@ public class GameManager : MonoBehaviour
         Init();
         Program.Init(new string[] { "Assets\\Scripts\\PacketGenerator\\PDL.xml" });
         Program.batFileStart();
+
+        UI.ShowPopupUI<UI_Button>();
+        UI.ShowPopupUI<UI_Button>();
     }
 
 }
