@@ -4,24 +4,29 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     static GameManager _gameManager;
-    static GameManager gameManager { get { return _gameManager; } }
+    public static GameManager Manager { get { Init(); return _gameManager; } }
+
     ResourceManager _resource = new ResourceManager();
+    SoundManager _sound = new SoundManager();
     UIManager _ui = new UIManager();
-    public static ResourceManager ResourceManager { get { return gameManager._resource; } }
-    public static UIManager UI { get { return gameManager._ui; } }
-   
+
+    public static ResourceManager ResourceManager { get { return Manager._resource; } }
+    public static SoundManager Sound { get { return Manager._sound; } }
+    public static UIManager UI { get { return Manager._ui; } }
+
     static void Init()
     {
-        GameObject go = GameObject.Find("GameManager");
+        GameObject go = GameObject.Find("@GameManager");
         if (go == null)
         {
-            go = new GameObject("GameManager");
-            DontDestroyOnLoad(go);
+            go = new GameObject { name = "@GameManager" };
+            go.AddComponent<GameManager>();
         }
-        if (_gameManager == null)
-        {
-            _gameManager = new GameManager();
-        }
+
+        DontDestroyOnLoad(go);
+        _gameManager = go.GetComponent<GameManager>();
+
+        _gameManager._sound.Init();
     }
 
     void Start()
@@ -32,6 +37,12 @@ public class GameManager : MonoBehaviour
 
         UI.ShowPopupUI<UI_Button>();
         UI.ShowPopupUI<UI_Button>();
+    }
+
+    static void Clear()
+    {
+        Sound.Clear();
+        UI.Clear();
     }
 
 }
