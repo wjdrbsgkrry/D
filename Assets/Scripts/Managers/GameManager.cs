@@ -45,4 +45,6 @@ public class GameManager : MonoBehaviour
         UI.Clear();
     }
 
+    int aaa = 1;
+
 }
