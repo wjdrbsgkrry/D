@@ -20,4 +20,12 @@ public class Define
         Effect,
         MaxCount
     }
+
+    public enum Scene
+    {
+        Null,
+        Login,
+        Lobby,
+        GameRoom,
+    }
 }

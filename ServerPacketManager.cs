@@ -23,7 +23,7 @@ class PacketManager
 
     public void Register()
     {
-              _onRecv.Add((ushort)PacketID.S_Login, MakePacket<S_Login>);
+        _onRecv.Add((ushort)PacketID.S_Login, MakePacket<S_Login>);
         _handler.Add((ushort)PacketID.S_Login, PacketHandler.S_LoginHandler);
 
 
